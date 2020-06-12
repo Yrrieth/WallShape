@@ -21,7 +21,10 @@ public class LoadWalls : MonoBehaviour
         // Remove from the list if a wall doesn't exist
         activeListWall.RemoveAll(GameObject => GameObject == null);
         
-        moveWall(speedWall);
+        if (wallModel != null)
+        {
+            moveWall(speedWall);
+        }
     }
 
     public void loadWallModel()
@@ -44,7 +47,8 @@ public class LoadWalls : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         GameObject currentWall = Instantiate(wallModel[wallNumber]);
-        currentWall.transform.position = new Vector3(0, 5, 50);
+        currentWall.transform.position = new Vector3(0, 16.21f, 30);
+        currentWall.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         currentWall.tag = "Wall";
         currentWall.GetComponent<Collider>().isTrigger = true;
         if (currentWall.GetComponent<Rigidbody>() == null) {
