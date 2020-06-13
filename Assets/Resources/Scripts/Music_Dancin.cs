@@ -26,7 +26,7 @@ public class Music_Dancin : MonoBehaviour
 
     void music()
     {
-        //loadWalls.putWall(1, 0f);
+        loadWalls.putWall(1, 0f);
         /*loadWalls.putWall(2, 1f);
         loadWalls.putWall(4, 1.5f);
         loadWalls.putWall(0, 3f);
