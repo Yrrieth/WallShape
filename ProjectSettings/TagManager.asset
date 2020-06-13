@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Head
+  - RightHand
+  - LeftHand
   layers:
   - Default
   - TransparentFX
