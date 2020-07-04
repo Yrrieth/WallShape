@@ -36,14 +36,20 @@ public class LoadWalls : MonoBehaviour
          */
         wallModel = Resources.LoadAll<GameObject>("Prefabs/Walls");
     }
-
+    
+    /* Shortcut of the function createWall()
+     * 
+     * Use this function instead of always write StartCoroutine... to create a wall on the scene
+     */
     public void putWall(int wallNumber, float delayTime)
     {
         StartCoroutine(createWall(wallNumber, delayTime));
     }
 
+    // Create a wall on the scene after a delay
     IEnumerator createWall(int wallNumber, float delayTime)
     {
+        // When a yield statement is used, the coroutine pauses execution and automatically resumes at the next frame
         yield return new WaitForSeconds(delayTime);
 
         GameObject currentWall = Instantiate(wallModel[wallNumber]);
@@ -59,6 +65,7 @@ public class LoadWalls : MonoBehaviour
         activeListWall.Add(currentWall);
     }
 
+    // Move a wall toward the player
     void moveWall(int movementSpeed)
     {
         foreach(var currentWall in activeListWall)
